@@ -37,6 +37,8 @@ while True:
     cursor = connection.cursor()
     cursor.execute('select * from users;')
     all_users = cursor.fetchall()
+    cursor.close()
+    connection.close()
 
     for i in all_users:
         try:
@@ -44,3 +46,4 @@ while True:
                             disable_notification=True)
         except:
             pass
+            #TODO : remove chat_id from database
